@@ -1,6 +1,6 @@
 # Pull base image 
 From tomcat:8-jre8 
-WORKDIR /var/lib/jenkins/workspace/testing-tools/webapp/target
+WORKDIR /var/jenkins_home/workspace/testing-tools/webapp/target
 
 # Maintainer 
 MAINTAINER "shashank1989mishra@gmail.com" 
