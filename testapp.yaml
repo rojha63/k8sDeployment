@@ -1,0 +1,35 @@
+kind: Deployment
+metadata:
+  name: application1
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: application1
+      
+  template:
+    metadata:
+      labels:
+        app: application1
+    spec:      
+      containers:
+      - name: application1
+        image: rojha63/my-app:6.0.0
+        ports:
+        - containerPort: 80
+		  
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: application1-svc
+  namespace: ingress-nginx
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 80
+  selector:
+     app: application1  
