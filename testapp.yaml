@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: application1
-  namespace: ingress-nginx
 spec:
   replicas: 1
   selector:
@@ -24,7 +23,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: application1-svc
-  namespace: ingress-nginx
 spec:
   type: LoadBalancer
   ports:
