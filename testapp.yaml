@@ -15,7 +15,7 @@ spec:
     spec:      
       containers:
       - name: application1
-        image: rojha63/my-app:6.0.0
+        image: rojha63/my-app:8.0.0
         ports:
         - containerPort: 80
 		  
