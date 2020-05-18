@@ -14,19 +14,32 @@ spec:
     spec:      
       containers:
       - name: application1
-        image: rojha63/my-app:8.0.0
+        image: rojha63/my-app:11.0.0
         ports:
         - containerPort: 80		  
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: application1-svc
+  name: application1-svc-np
+spec:
+  type: NodePort
+  ports:
+  - port: 33333
+    protocol: TCP
+    targetPort: 80
+  selector:
+     app: application1  
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: application1-svc-ldb
 spec:
   type: LoadBalancer
   ports:
   - port: 8080
     protocol: TCP
-    targetPort: 3880
+    targetPort: 33333
   selector:
      app: application1  
