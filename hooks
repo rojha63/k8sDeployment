@@ -1,1 +1,11 @@
-Jobname = Test-b
+pipeline {
+    agent { label 'slave-node' }
+    stages {
+        stage('test java installation') {
+            steps {
+                sh 'java -version'
+                sh 'sleep 300'
+            }
+        }
+    }
+}
