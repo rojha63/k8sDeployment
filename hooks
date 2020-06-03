@@ -4,7 +4,7 @@ pipeline {
         stage('test java installation') {
             steps {
                 sh 'java -version'
-                sh 'sleep 300'
+                sh 'sleep 100'
             }
         }
     }
